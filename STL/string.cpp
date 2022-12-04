@@ -29,3 +29,16 @@ bool isSubstring(string s1, string s2)
         return true;
     return false;
 }
+
+// same syntax in anothe way for same function
+// str="abcd";
+// s="a";
+std::size_t found = str.find(s[i][0]);
+        if (found != std::string::npos)
+        {
+            a++;
+        }
+        else
+        {
+            a--;
+        }
