@@ -1,7 +1,7 @@
 // Using 1D DP approach
 int ncr(int n,int r)
 {
-    int res[r+1];
+    vector<int> res(r+1);
     res[0]=1;
     for(int i=1;i<=n;i++)
     {
