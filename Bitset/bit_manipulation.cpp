@@ -30,3 +30,9 @@ int update bit(int n,int i,int k)
   n = n & mask;
   return (n | (k<<i));
 }
+
+// To remove the last SET Bit i.e '1'
+int remove_setbit(int n)
+{
+  return (n&(n-1));
+}
