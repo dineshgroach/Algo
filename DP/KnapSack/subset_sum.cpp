@@ -6,11 +6,11 @@ public:
         int n = arr.size();
         int m = sum;
         bool t[n + 1][m + 1];
-        for (int i = 0; i < m; i++)
+        for (int i = 0; i < m+1; i++)
         {
             t[0][i] = false;
         }
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n+1; i++)
         {
             t[i][0] = true;
         }
