@@ -15,7 +15,7 @@ int main()
             cin >> v[i][j];
         }
     }
-    vector<vector<int>> p(n + 1, vector<int>(m + 1));
+    vector<vector<int>> p(n + 1, vector<int>(m + 1, 0));
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= m; j++)
@@ -31,5 +31,12 @@ int main()
         }
         cout << endl;
     }
+
+    // To use Ranger Query Updation in O(1) time with 1 base Indexing
+    int row1, col1, row2, col2;
+    cin >> row1 >> col1 >> row2 >> col2;
+
+    int ans = p[row2 + 1][col2 + 1] - p[row1][col2 + 1] - p[row2 + 1][col1] + p[row1][col1];
+    cout << ans << endl;
     return 0;
 }
