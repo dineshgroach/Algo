@@ -59,6 +59,7 @@ int main()
 // Diameter of a Binary Tree
 class Solution {
   public:
+    // Below code finds the total number of nodes
     int find_height(Node *root, int &res)
     {
         if(root==NULL)
