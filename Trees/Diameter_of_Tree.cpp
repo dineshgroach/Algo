@@ -55,3 +55,29 @@ int main()
     cout << mx_depth << endl;
     return 0;
 }
+
+// Diameter of a Binary Tree
+class Solution {
+  public:
+    int find_height(Node *root, int &res)
+    {
+        if(root==NULL)
+        {
+            return 0;
+        }
+        int l = find_height(root->left, res);
+        int r = find_height(root->right, res);
+        int height = 1 + max(l, r);
+        res = max(res,1+l+r);
+        return height;
+    } 
+    int diameter(Node* root) {
+        if(root==NULL)
+        {
+            return 0;
+        }
+        int res = INT_MIN;
+        int var = find_height(root, res);
+        return res;
+    }
+};
