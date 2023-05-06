@@ -6,9 +6,9 @@ using namespace std;
 const int N = 1e3 + 10;
 const int INF = 1e9 + 10;
 
-vector<vector<int>> val(N, vector<int>(N));
-vector<vector<bool>> vis(N, vector<bool>(N));
-vector<vector<int>> lev(N, vector<int>(N, INF));
+vector<vector<int>> val;
+vector<vector<bool>> vis;
+vector<vector<int>> lev;
 
 int n, m;
 
