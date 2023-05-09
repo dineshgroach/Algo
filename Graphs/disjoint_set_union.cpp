@@ -33,6 +33,7 @@ void do_union(int a, int b)
             swap(a, b);
         }
         parent[b] = a;
+        chk_size[a] += chk_size[b];
     }
 }
 
