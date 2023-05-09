@@ -7,7 +7,7 @@ vector<int> parent(N);
 vector<int> chk_size(N);
 
 multiset<int> sizes;
-
+// This algorithm use DSU to find the Minimum Spanning Tree
 void make(int v)
 {
     parent[v] = v;
