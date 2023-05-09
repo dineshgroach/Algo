@@ -17,6 +17,7 @@ int find(int v)
     {
         return v;
     }
+    // Path Compression
     return parent[v] = find(parent[v]);
 }
 
@@ -26,6 +27,7 @@ void do_union(int a, int b)
     b = find(b);
     if (a != b)
     {
+        // Union By Size
         if (chk_size[a] < chk_size[b])
         {
             swap(a, b);
