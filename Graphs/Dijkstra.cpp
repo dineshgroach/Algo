@@ -6,6 +6,8 @@ const int INF = 1e9 + 10;
 
 vector<pair<int, int>> g[N];
 
+
+// This Algorithm is used to fine the shortest distance between the source node and all other nodes
 void dijkstra(int source)
 {
     vector<bool> vis(N, 0);
