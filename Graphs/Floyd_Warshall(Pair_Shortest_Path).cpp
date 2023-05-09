@@ -6,6 +6,7 @@ const int INF = 1e9 + 10;
 
 vector<vector<int>> dist(N, vector<int>(N, INF));
 
+// This algorithm also used as type of DP Approach used to find the shortest path between any two set of pairs
 int main()
 {
     for (int i = 0; i < N; i++)
