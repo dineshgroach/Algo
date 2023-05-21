@@ -88,3 +88,42 @@ int main()
     printsub(0, ds, v, n, 0, 12);
     return 0;
 }
+
+// To count the total number of subsequences statisfying the given condition
+#include <bits/stdc++.h>
+using namespace std;
+
+// To count the subsequences statisfying the condition using Recursion
+
+int printsub(int ind, vector<int> &ds, vector<int> v, int n, int s, int sum)
+{
+    if (ind == n)
+    {
+        if (s == sum)
+        {
+            return 1;
+        }
+        return 0;
+    }
+
+    // Condition to add the element at particular index
+    s += v[ind];
+    ds.push_back(v[ind]);
+    int l = printsub(ind + 1, ds, v, n, s, sum);
+
+    // Condition to NOT add the element at particular index
+    s -= v[ind];
+    ds.pop_back();
+    int r = printsub(ind + 1, ds, v, n, s, sum);
+
+    return (l + r);
+}
+
+int main()
+{
+    vector<int> ds;
+    vector<int> v{12, 4, 8};
+    int n = v.size();
+    cout << printsub(0, ds, v, n, 0, 12) << endl;
+    return 0;
+}
