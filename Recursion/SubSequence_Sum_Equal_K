@@ -1,0 +1,90 @@
+// To code print all the valid subsequences which statisfies the given condition
+#include <bits/stdc++.h>
+using namespace std;
+
+// To Print all the subsequences using Recursion
+
+void printsub(int ind, vector<int> &ds, vector<int> v, int n, int s, int sum)
+{
+    if (ind == n)
+    {
+        if (s == sum)
+        {
+            for (auto &it : ds)
+            {
+                cout << it << " ";
+            }
+            cout << endl;
+        }
+        return;
+    }
+
+    // Condition to add the element at particular index
+    s += v[ind];
+    ds.push_back(v[ind]);
+    printsub(ind + 1, ds, v, n, s, sum);
+
+    // Condition to NOT add the element at particular index
+    s -= v[ind];
+    ds.pop_back();
+    printsub(ind + 1, ds, v, n, s, sum);
+}
+int main()
+{
+    vector<int> ds;
+    vector<int> v{4, 12, 8};
+    int n = v.size();
+    printsub(0, ds, v, n, 0, 12);
+    return 0;
+}
+
+
+// Now in case if we want only single answer we can also do that making function boolean thus avoiding the unnecessary recursion calls
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// To Print only the subsequences statisfying the condition using Recursion
+
+bool printsub(int ind, vector<int> &ds, vector<int> v, int n, int s, int sum)
+{
+    if (ind == n)
+    {
+        if (s == sum)
+        {
+            for (auto &it : ds)
+            {
+                cout << it << " ";
+            }
+            cout << endl;
+            return true;
+        }
+        return false;
+    }
+
+    // Condition to add the element at particular index
+    s += v[ind];
+    ds.push_back(v[ind]);
+    if (printsub(ind + 1, ds, v, n, s, sum) == true)
+    {
+        return true;
+    }
+
+    // Condition to NOT add the element at particular index
+    s -= v[ind];
+    ds.pop_back();
+    if (printsub(ind + 1, ds, v, n, s, sum) == true)
+    {
+        return true;
+    }
+
+    return false;
+}
+int main()
+{
+    vector<int> ds;
+    vector<int> v{12, 4, 8};
+    int n = v.size();
+    printsub(0, ds, v, n, 0, 12);
+    return 0;
+}
