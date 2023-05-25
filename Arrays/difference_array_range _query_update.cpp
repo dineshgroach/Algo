@@ -69,3 +69,18 @@ int main()
     cout << endl;
     return 0;
 }
+
+
+// If want to start the diff array form 0 then only want check increment per index
+vector<int> diff(n + 2, 0);
+    for (auto i : vq)
+    {
+        int x = i.first, y = i.second;
+        diff[x]++;
+        diff[y + 1]--;
+    }
+    diff[0] = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        diff[i] = diff[i] + diff[i - 1];
+    }
