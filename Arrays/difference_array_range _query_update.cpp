@@ -10,7 +10,7 @@ int main()
     // Initializing the main and difference array
     vector<int> v = {2, 3, 6, 12, 18, 15};
     int n = v.size();
-    vector<int> diff(n + 1, 0);
+    vector<int> diff(n + 2, 0);
 
     // populating the main array
     for (int i = 0; i < n; i++)
