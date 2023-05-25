@@ -41,12 +41,14 @@ int main()
         }
         else
         {
+            // this line updates the value into main array
             v[i] = diff[i] + diff[i - 1];
+            // this line is used to make prefix sum into the diff array
             diff[i] = diff[i] + diff[i - 1];
         }
     }
 
-    // Same logic to update the value in diff array itself
+    // This code is used only to generated the prefix sum of the difference array
     for (int i = 0; i < n; i++)
     {
         if (i == 0)
@@ -55,7 +57,7 @@ int main()
         }
         else
         {
-            diff[i] = diff[i] - diff[i - 1];
+            diff[i] = diff[i] + diff[i - 1];
         }
     }
 
