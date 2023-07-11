@@ -20,7 +20,7 @@ int blackbox(int n,int w,int wt[],int val[],vector<vector<int>>&dp)
         return dp[n][w];
     }
 
-    // If we can include that element
+    // If we can not include that element
     if(wt[n-1]>w)
     {
         dp[n][w]=blackbox(n-1,w,wt,val,dp);
