@@ -62,3 +62,29 @@ int lengthOfLIS(vector<int>& nums) {
         }
         return temp.size();
     }
+
+// Optimized Approach using DP and Binary Search : TC - O(NlonN)
+// Refer to CP-Algorithms for more clearity
+int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        const int INF = 1e9;
+        vector<int>dp(n+1,INF);
+        dp[0]=-INF;
+        for(int i = 0;i<n;i++)
+        {
+            int l = upper_bound(dp.begin(),dp.end(),nums[i])-dp.begin();
+            if(dp[l-1]<nums[i] && nums[i]<dp[l])
+            {
+                dp[l]=nums[i];
+            }
+        }
+        int ans = 0;
+        for(int i=0;i<=n;i++)
+        {
+            if(dp[i]<INF)
+            {
+                ans=i;
+            }
+        }
+        return ans;
+    }
