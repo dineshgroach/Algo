@@ -43,3 +43,22 @@ int lengthOfLIS(vector<int> &nums)
         }
         return *max_element(dp.begin(),dp.end());
     }
+
+// Optimized Approach using Greedy and Binary Search : TC - O(NlonN) 
+// Refer to YouTube to refersh the concept
+int lengthOfLIS(vector<int>& nums) {
+        vector<int>temp;
+        for(auto it:nums)
+        {
+            if(temp.empty() or temp[temp.size()-1] < it)
+            {
+                temp.push_back(it);
+            }
+            else
+            {
+                auto itr = lower_bound(temp.begin(),temp.end(),it);
+                *itr=it;
+            }
+        }
+        return temp.size();
+    }
