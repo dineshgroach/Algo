@@ -1,6 +1,6 @@
 // To get all three traversal in single scan using stack
-// TC - O(n)
-// Sc - O(n)
+// TC - O(3*n)
+// Sc - O(3*n)
 vector<vector<int>> getTreeTraversal(TreeNode *root)
 {
 	vector<vector<int>>ans(3);
