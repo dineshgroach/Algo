@@ -43,3 +43,41 @@ int main()
     }
     return 0;
 }
+
+
+// Finding Height Using Recursion (can also be called as Maximum Depth)
+int maxDepth(TreeNode *root)
+    {
+        if(root==NULL) return 0;
+        int l = maxDepth(root->left);
+        int r = maxDepth(root->right);
+        return 1+ max(l,r);
+    }
+
+// Same Thing iterative Solution
+int maxDepth(TreeNode *root)
+    {
+        if(root==NULL) return 0;
+        queue<TreeNode*>q;
+        q.push(root);
+        int height = 0;
+        while (!q.empty())
+        {
+            int sz=q.size();
+            for (int i = 0; i < sz; i++)
+            {
+                auto var = q.front();
+                q.pop();
+                if(var->left!=NULL)
+                {
+                    q.push(var->left);
+                }
+                if(var->right!=NULL)
+                {
+                    q.push(var->right);
+                }
+            }
+            height++;
+        }
+        return height;
+    }
