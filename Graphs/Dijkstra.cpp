@@ -1,3 +1,38 @@
+// Dijikstra Algorithm Stiver Approach using Set
+
+vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    {
+        set<pair<int,int>>st;
+        st.insert({0,S});
+        vector<int>dist(V,1e9);
+        dist[S]=0;
+        while(!st.empty())
+        {
+            auto it=*st.begin();
+            int dis = it.first;
+            int node = it.second;
+            st.erase(it);
+            for(auto it:adj[node])
+            {
+                int adjnode = it[0];
+                int adjwt = it[1];
+                if(dis + adjwt<dist[adjnode])
+                {
+                    if(dist[adjnode]!=1e9)
+                    {
+                        st.erase({dist[adjnode],adjnode});
+                    }
+                    dist[adjnode]=dis+adjwt;
+                    st.insert({dist[adjnode],adjnode});
+                }
+            }
+        }
+        return dist;
+    }
+
+
+// Using Luv's Video
+
 #include <bits/stdc++.h>
 using namespace std;
 
