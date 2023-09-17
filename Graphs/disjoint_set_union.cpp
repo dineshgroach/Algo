@@ -1,3 +1,76 @@
+// Disjoint Set Union Using Class
+
+class DisjointSet
+{
+private:
+    vector<int> size, parent;
+
+public:
+    DisjointSet(int n)
+    {
+        size.resize(n + 1);
+        parent.resize(n + 1);
+        for (int i = 0; i <= n; i++)
+        {
+            size[i] = 1;
+            parent[i] = i;
+        }
+    }
+
+    int findpar(int node)
+    {
+        if (node == parent[node])
+        {
+            return node;
+        }
+        return parent[node] = findpar(parent[node]);
+    }
+
+    void unionbysize(int u, int v)
+    {
+        int par_u = findpar(u);
+        int par_v = findpar(v);
+        if (par_u == par_v)
+            return;
+        if (size[par_u] < size[par_v])
+        {
+            parent[par_u] = par_v;
+            size[par_v] += size[par_u];
+        }
+        else
+        {
+            parent[par_v] = par_u;
+            size[par_u] += size[par_v];
+        }
+    }
+};
+
+// working example
+DisjointSet ds(7);
+    ds.unionbysize(1, 2);
+    ds.unionbysize(2, 3);
+    ds.unionbysize(4, 5);
+    ds.unionbysize(6, 7);
+    ds.unionbysize(5, 6);
+    if (ds.findpar(3) == ds.findpar(7))
+    {
+        cout << "Same" << endl;
+    }
+    else
+    {
+        cout << "Not Same" << endl;
+    }
+    ds.unionbysize(3, 7);
+    if (ds.findpar(3) == ds.findpar(7))
+    {
+        cout << "Same" << endl;
+    }
+    else
+    {
+        cout << "Not Same" << endl;
+    }
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
