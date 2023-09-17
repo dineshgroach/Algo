@@ -1,3 +1,79 @@
+// Krushkal Striver Coding Ninja Code
+class DisjointSet
+{
+private:
+    vector<int> size, parent;
+
+public:
+    DisjointSet(int n)
+    {
+        size.resize(n + 1);
+        parent.resize(n + 1);
+        for (int i = 0; i <= n; i++)
+        {
+            size[i] = 1;
+            parent[i] = i;
+        }
+    }
+
+    int findpar(int node)
+    {
+        if (node == parent[node])
+        {
+            return node;
+        }
+        return parent[node] = findpar(parent[node]);
+    }
+
+    void unionbysize(int u, int v)
+    {
+        int par_u = findpar(u);
+        int par_v = findpar(v);
+        if (par_u == par_v)
+            return;
+        if (size[par_u] < size[par_v])
+        {
+            parent[par_u] = par_v;
+            size[par_v] += size[par_u];
+        }
+        else
+        {
+            parent[par_v] = par_u;
+            size[par_u] += size[par_v];
+        }
+    }
+};
+
+int kruskalMST(int n, vector<vector<int>> &edges)
+{
+	vector<pair<int,pair<int,int>>>adj;
+	for(auto it:edges)
+	{
+		int u = it[0];
+		int v = it[1];
+		int wt = it[2];
+		adj.push_back({wt,{u,v}});
+	}
+    // Sorting adjanceny list according to the edges of the weight
+	sort(adj.begin(),adj.end());
+	int mstwt = 0;
+	DisjointSet ds(n);
+	for(auto it:adj)
+	{
+		int wt = it.first;
+		int u = it.second.first;
+		int v = it.second.second;
+		if(ds.findpar(u)!=ds.findpar(v))
+		{
+			mstwt+=wt;
+			ds.unionbysize(u, v);
+		}
+	}
+	return mstwt;
+}
+
+
+// Luv CP Series Code
 #include <bits/stdc++.h>
 using namespace std;
 
