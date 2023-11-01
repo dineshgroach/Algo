@@ -1,6 +1,9 @@
 // This is the code from the Codeforces ITMO University used to create segment tree for an array where we can 
 // perform two operations in query 1. Update a value 2. Get sum from range ( L to R)
 
+// We can modify the code as well as to perform some other functions as well such as minimum,maximum,gcd,bitwise operator
+// assocaitive operator like (including modulo multiplication, matrix multiplication, etc.) just change the sum function
+// to the desired functions as well
 
 #include <bits/stdc++.h>
 using namespace std;
