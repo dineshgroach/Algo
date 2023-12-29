@@ -8,3 +8,6 @@
 
 // example decleration
     ordered_set<int>s;
+
+// main operations: find_by_order() and order_of_key(). The first returns an iterator to the k-th largest element (counting 
+// from zero), the second — the number of items in a set that are strictly smaller than our item
