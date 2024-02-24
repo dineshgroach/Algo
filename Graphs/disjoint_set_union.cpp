@@ -26,6 +26,11 @@ public:
         return parent[node] = findpar(parent[node]);
     }
 
+    void reset(int node)
+    {
+        parent[node] = node;
+    }
+
     void unionbysize(int u, int v)
     {
         int par_u = findpar(u);
