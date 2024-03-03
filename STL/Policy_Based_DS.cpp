@@ -27,3 +27,5 @@ using ordered_multiset = __gnu_pbds::tree<T, __gnu_pbds::null_type, less_equal<T
 
 // example decleration rest features are same
     ordered_multiset<int>s;
+
+// To erase by value : os.erase(os.find_by_order(os.order_of_key(val)));
