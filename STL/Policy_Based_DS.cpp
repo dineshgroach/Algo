@@ -11,3 +11,7 @@
 
 // main operations: find_by_order() and order_of_key(). The first returns an iterator to the k-th largest element (counting 
 // from zero), the second — the number of items in a set that are strictly smaller than our item
+
+// if want to store the duplicate as well then try to use pbds with pairs Try pbds with pairs, insert{a[i],i}.
+// find number of values less than equal to some x in pbds with pairs. s.order_of_key({x, n+1})
+// where n=number of elements in array
