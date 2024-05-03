@@ -2,6 +2,8 @@
 // override the values then refer to this link  
 // https://github.com/shivam-bhadani/Competitive-Codes/blob/master/Recursive%20Lazy%20Segment%20Tree.CPP
 // or modify below tempelate
+
+// Try to use this considering 1's based indexing
 class SegTree
 {
 public:
