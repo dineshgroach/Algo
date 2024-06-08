@@ -1,3 +1,32 @@
+// If have to use Trie via global declaration
+class Trie {
+public:
+    Trie *child[26];
+    bool isEnd = false;
+    Trie()
+    {
+        for(int i = 0; i < 26; i++)
+        {
+            child[i] = NULL;
+        }
+    }
+
+    void insert(string& s)
+    {
+        Trie* Node = this;
+        for(char& c:s)
+        {
+            if(!Node->child[c-'a'])
+            {
+                Node->child[c-'a'] = new Trie();
+            }
+            Node = Node->child[c-'a'];
+        }
+        Node->isEnd = true;
+    }
+};
+// Declaration be like
+Trie* trie = new Trie();
 // Trie Implementation in classes using C++
 struct Node
 {
