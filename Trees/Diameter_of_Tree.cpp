@@ -1,3 +1,30 @@
+// for usecase in leetcode style
+void dfs(int node,int par,int dist,vector<vector<int>>& adj,pair<int,int>& ans)
+    {
+        if(dist > ans.first)
+        {
+            ans = {dist,node};
+        }
+        for(auto& child:adj[node])
+        {
+            if(child != par)
+            {
+                dfs(child,node,dist + 1,adj,ans);
+            }
+        }
+    }
+
+    int findDiameter(vector<vector<int>>& adj)
+    {
+        pair<int,int> ans = {INT_MIN,-1};
+        dfs(0,-1,0,adj,ans);
+        int farthest = ans.second;
+        ans = {INT_MIN,-1};
+        dfs(farthest,-1,0,adj,ans);
+        return ans.first;
+    }
+
+// general code
 #include <bits/stdc++.h>
 using namespace std;
 
