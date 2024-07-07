@@ -18,9 +18,10 @@ vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
                 int adjwt = it[1];
                 if(dis + adjwt<dist[adjnode])
                 {
-                    if(dist[adjnode]!=1e9)
+                    auto tochange = st.find({dist[adjnode],adjnode});
+                    if(tochange!=st.end())
                     {
-                        st.erase({dist[adjnode],adjnode});
+                        st.erase(tochange);
                     }
                     dist[adjnode]=dis+adjwt;
                     st.insert({dist[adjnode],adjnode});
