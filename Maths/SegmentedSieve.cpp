@@ -22,7 +22,7 @@ vector<bool> getPrimesInRange(long long L,long long R)
     vector<bool> isPrime(R - L + 1, true);
     for (long long i = 2; i * i<= R; i++)
     {
-        if(prime[i])
+        if(!prime[i])
         {
             for (int j = max(i * i, (L + i -1)/(i * i)); j <= R; j += i)
             {
