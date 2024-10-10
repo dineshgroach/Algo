@@ -1,9 +1,4 @@
 const int MOD = 1e9 + 7;
-int mod(int a, int m = MOD)
-{
-    return a % m;
-}
-
 template <class T>
 class Math
 {
@@ -42,5 +37,9 @@ public:
         ans = mod(ans * invfact[n - k]);
         ans = mod(ans * invfact[k]);
         return ans;
+    }
+    T mod(T a, T m = MOD)
+    {
+        return a % m;
     }
 };
