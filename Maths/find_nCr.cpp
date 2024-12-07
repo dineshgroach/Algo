@@ -1,3 +1,7 @@
+// Fermat Little Theorem
+
+(x ^ (mod - 1)) % mod == 1 % mod
+
 // Using Pre Computation to calculate the nCr fastly
 const int MOD = 1e9 + 7;
 const int N = 5000005;
